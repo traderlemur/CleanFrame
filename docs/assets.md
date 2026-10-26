@@ -27,14 +27,13 @@ All fields use the centred 1920 x 1080 crop. The small panel backdrop comes from
 
 ## New or replacement photographs
 
-Full-size original photographs are local inputs and are not required for glass regeneration: the bundled 1920px JPEGs are the rendering inputs. To recreate JPEGs/thumbnails from the original supplied filenames on a Mac:
+The current set is fifteen Shanghai photographs from Unsplash, downloaded as 3840px renditions into ignored `.local/originals/shanghai/` (`picks.tsv` lists id, name, photo ID, CDN image and credit). Prepare them with Pillow in a local environment:
 
 ```sh
-python3 scripts/prepare-wallpapers.py /path/to/originals --ids summit,goldcoast,sydney,amber,mint,alpine
+python3 -m venv .local/venv && .local/venv/bin/pip install Pillow
+.local/venv/bin/python scripts/prepare-wallpapers.py .local/originals/shanghai
 ```
 
-The retained generator covers all fifteen filenames and writes `.local/materials/wallpapers/`. The original nine keep their macOS `sips` recipe. The new six require Pillow and use the reviewed centred crop and JPEG settings; Pillow is a development dependency only. Supply Golden Hour as `big-sur-golden-hour.jpg` in the originals folder. Install Pillow in a local Python environment when using the six newer photos.
+This writes centred 1920 x 1080 backgrounds (quality 90, full chroma), 512 x 288 thumbnails and 3840 x 2160 `-4k.jpg` crops to `.local/materials/wallpapers/`. The 4K crops feed the experimental video-layer wallpaper: each is encoded as a two-second H.264 High, Level 5.1, limited-range BT.709 MP4 with ffmpeg. Samsung TV apps draw their UI at 1920 x 1080; only the video plane is UHD.
 
-For another photo, add its source/credit to `SOURCES.json`, prepare its background and thumbnail, add the gallery entry in `catalog.js`, generate the four registered materials and panel backdrop, then measure and review its foreground metadata. Keep the crop identical across all assets. Run source and browser checks before packaging.
-
-Source pages and licence observations are recorded in [asset sources](asset-sources.md).
+For another photo, add its source/credit to `SOURCES.json`, prepare its background and thumbnail, add the gallery entry in `catalog.js`, generate the four registered materials and panel backdrop, then review its clock, controls and dock in both layouts. Keep the crop identical across all assets. Run source and browser checks before packaging.

@@ -1,7 +1,7 @@
 """Prepare supplied originals in ignored staging; never replace app assets automatically.
 
-The original nine photos retain their macOS sips recipe. The six newer photos
-use Pillow (development dependency only); see docs/assets.md.
+The Shanghai set uses Pillow (development dependency only); see docs/assets.md.
+Each photo also gets a 3840 x 2160 crop for the 4K video-layer wallpaper.
 """
 import argparse
 from hashlib import sha256
@@ -14,23 +14,24 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / '.local/materials/wallpapers'
 PHOTOS = [
-    ('misty', 'Misty coast', 'ganapathy-kumar-n4VMQZIkgDg-unsplash.jpg', 'Ganapathy Kumar', 'n4VMQZIkgDg', 'light'),
-    ('cove', 'Quiet cove', 'joshua-wordel-1L_5PT7EKzU-unsplash.jpg', 'Joshua Wordel', '1L_5PT7EKzU', 'light'),
-    ('forest', 'Forest mist', 'dejan-zakic-rr2EF3J5F2Y-unsplash.jpg', 'Dejan Zakic', 'rr2EF3J5F2Y', 'dark'),
-    ('valley', 'Mountain valley', 'aniket-deole-M6XC789HLe8-unsplash.jpg', 'Aniket Deole', 'M6XC789HLe8', 'dark'),
-    ('night', 'Desert stars', 'mohammad-alizade-4wzRuAb-KWs-unsplash.jpg', 'Mohammad Alizade', '4wzRuAb-KWs', 'light'),
-    ('peaks', 'Blue peaks', 'john-rodenn-castillo-rQqWOHZ96OM-unsplash.jpg', 'John Rodenn Castillo', 'rQqWOHZ96OM', 'dark'),
-    ('bridge', 'Bridge at dusk', 'justin-wolff-pbp_Ww2cewA-unsplash.jpg', 'Justin Wolff', 'pbp_Ww2cewA', 'dark'),
-    ('ridge', 'Sunlit ridges', 'cristina-gottardi-wndpWTiDuT0-unsplash.jpg', 'Cristina Gottardi', 'wndpWTiDuT0', 'dark'),
-    ('golden', 'Golden hour', 'big-sur-golden-hour.jpg', 'Karthik Sreenivas', 'tmtkhWbgMu8', 'dark'),
-    ('summit', 'Sunlit summits', 'rudra-gupta-PuTSzJJ-qyU-unsplash.jpg', 'Rudra Gupta', 'PuTSzJJ-qyU', 'dark'),
-    ('goldcoast', 'Gold Coast dusk', 'city-of-gold-coast-YiaGblobOGI-unsplash.jpg', 'City of Gold Coast', 'YiaGblobOGI', 'light'),
-    ('sydney', 'Sydney Harbour', 'caleb-JmuyB_LibRo-unsplash.jpg', 'Caleb', 'JmuyB_LibRo', 'light'),
-    ('amber', 'Amber hills', 'chris-barbalis-vazZtmYFgFY-unsplash.jpg', 'Chris Barbalis', 'vazZtmYFgFY', 'light'),
-    ('mint', 'Mint wave', 'magicpattern-87PP9Zd7MNo-unsplash.jpg', 'MagicPattern', '87PP9Zd7MNo', 'light'),
-    ('alpine', 'Alpine glow', 'cristina-gottardi-CSpjU6hYo_0-unsplash.jpg', 'Cristina Gottardi', 'CSpjU6hYo_0', 'light'),
+    ('bund', 'The Bund at blue hour', 'bund.jpg', 'Li Yang', '5h_dMuX_7RE', 'dark'),
+    ('mirror', 'Lujiazui reflections', 'mirror.jpg', 'Freeman Zhou', 'oV9hp8wXkPE', 'dark'),
+    ('hongkou', 'Night from Hongkou', 'hongkou.jpg', '鱼 鱼', '9CFR4gROdcs', 'dark'),
+    ('waibaidu', 'Waibaidu Bridge', 'waibaidu.jpg', 'Richard Liu', 'AhC3Zdn5wOQ', 'light'),
+    ('huangpu', 'Huangpu at night', 'huangpu.jpg', 'Ilan Michel', 'GeC2q7JzpQU', 'dark'),
+    ('zhongshan', 'Zhongshan Road lights', 'zhongshan.jpg', 'Kounotori', 'IU_nBd0oYPA', 'dark'),
+    ('reflection', 'River glow', 'reflection.jpg', 'Henry Chen', 'Is3SdpT7OA4', 'dark'),
+    ('sunset', 'Pudong sunset', 'sunset.jpg', 'ZENG YILI', 'NFMbwZHT6vE', 'light'),
+    ('waterfront', 'Blue waterfront', 'waterfront.jpg', 'Henry Chen', 'ZEVe7PyDBs4', 'dark'),
+    ('silhouette', 'Skyline silhouette', 'silhouette.jpg', 'Pen Tsai', 'djByJFHwFbY', 'dark'),
+    ('customs', 'Custom House clock', 'customs.jpg', 'Archcookie', 'gk-Gfo1cx1k', 'dark'),
+    ('dusk', 'Golden dusk', 'dusk.jpg', 'Lewis BD', 'pGk6UjPYjxQ', 'light'),
+    ('skyline', 'Towers at dusk', 'skyline.jpg', 'Lijian (Richard) Zhu', 'sze3ar5-Isw', 'dark'),
+    ('heritage', 'Bund heritage', 'heritage.jpg', 'Lijian (Richard) Zhu', 'xA8Rc6IgWUk', 'dark'),
+    ('daylight', 'Huangpu daylight', 'daylight.jpg', 'Rich Xu', 'oqOQ9D4Q08E', 'light'),
 ]
-COVER_IDS = {'summit', 'goldcoast', 'sydney', 'amber', 'mint', 'alpine'}
+# Every Shanghai photo uses the Pillow cover recipe; originals are 3840px Unsplash renditions.
+COVER_IDS = {photo[0] for photo in PHOTOS}
 
 
 def file_hash(path):
@@ -52,8 +53,11 @@ def prepare_cover(path, id, Image, ImageOps):
         original.load()
         profile = original.info.get('icc_profile')
         image = ImageOps.exif_transpose(original).convert('RGB')
-    background = ImageOps.fit(image, (1920, 1080), Image.Resampling.LANCZOS,
-                              centering=(0.5, 0.5))
+    uhd = ImageOps.fit(image, (3840, 2160), Image.Resampling.LANCZOS,
+                       centering=(0.5, 0.5))
+    uhd.save(OUTPUT / (id + '-4k.jpg'), 'JPEG', quality=94, subsampling=0,
+             optimize=True, icc_profile=profile)
+    background = uhd.resize((1920, 1080), Image.Resampling.LANCZOS)
     thumbnail = background.resize((512, 288), Image.Resampling.LANCZOS)
     for tag, image, quality, subsampling in [
         ('', background, 90, 0), ('-thumb', thumbnail, 85, 2),
@@ -67,7 +71,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('source', type=Path,
                         help='Folder containing the selected original Unsplash filenames')
-    parser.add_argument('--ids', help='Comma-separated wallpaper IDs; default: all 15')
+    parser.add_argument('--ids', help='Comma-separated wallpaper IDs; default: all')
     args = parser.parse_args()
     requested = None if args.ids is None else {id.strip() for id in args.ids.split(',')}
     known = {photo[0] for photo in PHOTOS}
@@ -86,7 +90,7 @@ def main():
         try:
             from PIL import Image, ImageOps
         except ImportError:
-            parser.error('The six newer photos require Pillow. See docs/assets.md.')
+            parser.error('The Shanghai photos require Pillow. See docs/assets.md.')
 
     OUTPUT.mkdir(parents=True, exist_ok=True)
     items = []

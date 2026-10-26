@@ -1,10 +1,115 @@
 /* Bundled gallery and offline appearance parameters. */
 window.CleanFrameWallpapers = [
   {
-    "id": "misty",
-    "name": "Misty coast",
-    "src": "assets/wallpapers/misty.jpg",
-    "thumb": "assets/wallpapers/misty-thumb.jpg",
+    "id": "bund",
+    "name": "The Bund at blue hour",
+    "src": "assets/wallpapers/bund.jpg",
+    "thumb": "assets/wallpapers/bund-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "mirror",
+    "name": "Lujiazui reflections",
+    "src": "assets/wallpapers/mirror.jpg",
+    "thumb": "assets/wallpapers/mirror-thumb.jpg",
+    "tone": "light",
+    "ut": {
+      "tr": "dark",
+      "br": "light"
+    },
+    "frostVeil": 0.2,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": true
+  },
+  {
+    "id": "hongkou",
+    "name": "Night from Hongkou",
+    "src": "assets/wallpapers/hongkou.jpg",
+    "thumb": "assets/wallpapers/hongkou-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": true
+  },
+  {
+    "id": "waibaidu",
+    "name": "Waibaidu Bridge",
+    "src": "assets/wallpapers/waibaidu.jpg",
+    "thumb": "assets/wallpapers/waibaidu-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "huangpu",
+    "name": "Huangpu at night",
+    "src": "assets/wallpapers/huangpu.jpg",
+    "thumb": "assets/wallpapers/huangpu-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "zhongshan",
+    "name": "Zhongshan Road lights",
+    "src": "assets/wallpapers/zhongshan.jpg",
+    "thumb": "assets/wallpapers/zhongshan-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "reflection",
+    "name": "River glow",
+    "src": "assets/wallpapers/reflection.jpg",
+    "thumb": "assets/wallpapers/reflection-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "sunset",
+    "name": "Pudong sunset",
+    "src": "assets/wallpapers/sunset.jpg",
+    "thumb": "assets/wallpapers/sunset-thumb.jpg",
     "tone": "light",
     "ut": {
       "tr": "mist",
@@ -13,28 +118,73 @@ window.CleanFrameWallpapers = [
     "frostVeil": 0.2,
     "listColumn": 0,
     "dockQuiet": false,
+    "clockMist": true
+  },
+  {
+    "id": "waterfront",
+    "name": "Blue waterfront",
+    "src": "assets/wallpapers/waterfront.jpg",
+    "thumb": "assets/wallpapers/waterfront-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
     "clockMist": false
   },
   {
-    "id": "cove",
-    "name": "Quiet cove",
-    "src": "assets/wallpapers/cove.jpg",
-    "thumb": "assets/wallpapers/cove-thumb.jpg",
-    "tone": "light",
+    "id": "silhouette",
+    "name": "Skyline silhouette",
+    "src": "assets/wallpapers/silhouette.jpg",
+    "thumb": "assets/wallpapers/silhouette-thumb.jpg",
+    "tone": "dark",
     "ut": {
       "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "customs",
+    "name": "Custom House clock",
+    "src": "assets/wallpapers/customs.jpg",
+    "thumb": "assets/wallpapers/customs-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "dusk",
+    "name": "Golden dusk",
+    "src": "assets/wallpapers/dusk.jpg",
+    "thumb": "assets/wallpapers/dusk-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "mist",
       "br": "mist"
     },
     "frostVeil": 0.12,
     "listColumn": 0,
     "dockQuiet": false,
-    "clockMist": true
+    "clockMist": false
   },
   {
-    "id": "forest",
-    "name": "Forest mist",
-    "src": "assets/wallpapers/forest.jpg",
-    "thumb": "assets/wallpapers/forest-thumb.jpg",
+    "id": "skyline",
+    "name": "Towers at dusk",
+    "src": "assets/wallpapers/skyline.jpg",
+    "thumb": "assets/wallpapers/skyline-thumb.jpg",
     "tone": "dark",
     "ut": {
       "tr": "mist",
@@ -46,185 +196,33 @@ window.CleanFrameWallpapers = [
     "clockMist": true
   },
   {
-    "id": "valley",
-    "name": "Mountain valley",
-    "src": "assets/wallpapers/valley.jpg",
-    "thumb": "assets/wallpapers/valley-thumb.jpg",
-    "tone": "dark",
-    "ut": {
-      "tr": "mist",
-      "br": "light"
-    },
-    "frostVeil": 0.12,
-    "listColumn": 3,
-    "dockQuiet": false,
-    "clockMist": false
-  },
-  {
-    "id": "night",
-    "name": "Desert stars",
-    "src": "assets/wallpapers/night.jpg",
-    "thumb": "assets/wallpapers/night-thumb.jpg",
+    "id": "heritage",
+    "name": "Bund heritage",
+    "src": "assets/wallpapers/heritage.jpg",
+    "thumb": "assets/wallpapers/heritage-thumb.jpg",
     "tone": "light",
     "ut": {
-      "tr": "light",
+      "tr": "dark",
       "br": "light"
     },
     "frostVeil": 0.2,
     "listColumn": 0,
     "dockQuiet": false,
-    "clockMist": false
+    "clockMist": true
   },
   {
-    "id": "peaks",
-    "name": "Blue peaks",
-    "src": "assets/wallpapers/peaks.jpg",
-    "thumb": "assets/wallpapers/peaks-thumb.jpg",
-    "tone": "dark",
+    "id": "daylight",
+    "name": "Huangpu daylight",
+    "src": "assets/wallpapers/daylight.jpg",
+    "thumb": "assets/wallpapers/daylight-thumb.jpg",
+    "tone": "light",
     "ut": {
       "tr": "dark",
       "br": "mist"
     },
-    "frostVeil": 0.36,
-    "listColumn": 2,
-    "dockQuiet": true,
-    "clockMist": false,
-    "clockInk": "#3a586e",
-    "dockClockInk": "#324f65"
-  },
-  {
-    "id": "bridge",
-    "name": "Bridge at dusk",
-    "src": "assets/wallpapers/bridge.jpg",
-    "thumb": "assets/wallpapers/bridge-thumb.jpg",
-    "tone": "dark",
-    "ut": {
-      "tr": "dark",
-      "br": "mist"
-    },
-    "frostVeil": 0.44,
-    "listColumn": 0,
-    "dockQuiet": false,
-    "clockMist": false
-  },
-  {
-    "id": "ridge",
-    "name": "Sunlit ridges",
-    "src": "assets/wallpapers/ridge.jpg",
-    "thumb": "assets/wallpapers/ridge-thumb.jpg",
-    "tone": "dark",
-    "ut": {
-      "tr": "mist",
-      "br": "light"
-    },
-    "frostVeil": 0.12,
+    "frostVeil": 0.2,
     "listColumn": 0,
     "dockQuiet": false,
     "clockMist": true
-  },
-  {
-    "id": "golden",
-    "name": "Golden hour",
-    "src": "assets/wallpapers/golden.jpg",
-    "thumb": "assets/wallpapers/golden-thumb.jpg",
-    "tone": "dark",
-    "ut": {
-      "tr": "mist",
-      "br": "mist"
-    },
-    "frostVeil": 0.3,
-    "listColumn": 2,
-    "dockQuiet": true,
-    "clockMist": true
-  },
-  {
-    "id": "summit",
-    "name": "Sunlit summits",
-    "src": "assets/wallpapers/summit.jpg",
-    "thumb": "assets/wallpapers/summit-thumb.jpg",
-    "tone": "dark",
-    "ut": {
-      "tr": "light",
-      "br": "light"
-    },
-    "frostVeil": 0.2,
-    "listColumn": 0,
-    "dockQuiet": false,
-    "clockMist": false
-  },
-  {
-    "id": "goldcoast",
-    "name": "Gold Coast dusk",
-    "src": "assets/wallpapers/goldcoast.jpg",
-    "thumb": "assets/wallpapers/goldcoast-thumb.jpg",
-    "tone": "light",
-    "ut": {
-      "tr": "mist",
-      "br": "mist"
-    },
-    "frostVeil": 0.2,
-    "listColumn": 3,
-    "dockQuiet": false,
-    "clockMist": false
-  },
-  {
-    "id": "sydney",
-    "name": "Sydney Harbour",
-    "src": "assets/wallpapers/sydney.jpg",
-    "thumb": "assets/wallpapers/sydney-thumb.jpg",
-    "tone": "light",
-    "ut": {
-      "tr": "mist",
-      "br": "mist"
-    },
-    "frostVeil": 0.44,
-    "listColumn": 3,
-    "dockQuiet": false,
-    "clockMist": true
-  },
-  {
-    "id": "amber",
-    "name": "Amber hills",
-    "src": "assets/wallpapers/amber.jpg",
-    "thumb": "assets/wallpapers/amber-thumb.jpg",
-    "tone": "light",
-    "ut": {
-      "tr": "mist",
-      "br": "light"
-    },
-    "frostVeil": 0.2,
-    "listColumn": 0,
-    "dockQuiet": false,
-    "clockMist": false
-  },
-  {
-    "id": "mint",
-    "name": "Mint wave",
-    "src": "assets/wallpapers/mint.jpg",
-    "thumb": "assets/wallpapers/mint-thumb.jpg",
-    "tone": "light",
-    "ut": {
-      "tr": "mist",
-      "br": "light"
-    },
-    "frostVeil": 0.44,
-    "listColumn": 3,
-    "dockQuiet": false,
-    "clockMist": false
-  },
-  {
-    "id": "alpine",
-    "name": "Alpine glow",
-    "src": "assets/wallpapers/alpine.jpg",
-    "thumb": "assets/wallpapers/alpine-thumb.jpg",
-    "tone": "light",
-    "ut": {
-      "tr": "mist",
-      "br": "light"
-    },
-    "frostVeil": 0.2,
-    "listColumn": 0,
-    "dockQuiet": false,
-    "clockMist": false
   }
 ];

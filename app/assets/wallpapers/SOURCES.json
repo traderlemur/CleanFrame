@@ -1,152 +1,152 @@
 [
   {
-    "id": "misty",
-    "name": "Misty coast",
-    "src": "assets/wallpapers/misty.jpg",
-    "thumb": "assets/wallpapers/misty-thumb.jpg",
-    "pos": "50% 50%",
-    "tone": "light",
-    "credit": "Ganapathy Kumar",
-    "source": "https://unsplash.com/photos/n4VMQZIkgDg"
-  },
-  {
-    "id": "cove",
-    "name": "Quiet cove",
-    "src": "assets/wallpapers/cove.jpg",
-    "thumb": "assets/wallpapers/cove-thumb.jpg",
-    "pos": "50% 50%",
-    "tone": "light",
-    "credit": "Joshua Wordel",
-    "source": "https://unsplash.com/photos/1L_5PT7EKzU"
-  },
-  {
-    "id": "forest",
-    "name": "Forest mist",
-    "src": "assets/wallpapers/forest.jpg",
-    "thumb": "assets/wallpapers/forest-thumb.jpg",
+    "id": "bund",
+    "name": "The Bund at blue hour",
+    "src": "assets/wallpapers/bund.jpg",
+    "thumb": "assets/wallpapers/bund-thumb.jpg",
     "pos": "50% 50%",
     "tone": "dark",
-    "credit": "Dejan Zakic",
-    "source": "https://unsplash.com/photos/rr2EF3J5F2Y"
+    "credit": "Li Yang",
+    "source": "https://unsplash.com/photos/5h_dMuX_7RE"
   },
   {
-    "id": "valley",
-    "name": "Mountain valley",
-    "src": "assets/wallpapers/valley.jpg",
-    "thumb": "assets/wallpapers/valley-thumb.jpg",
-    "pos": "50% 50%",
-    "tone": "dark",
-    "credit": "Aniket Deole",
-    "source": "https://unsplash.com/photos/M6XC789HLe8"
-  },
-  {
-    "id": "night",
-    "name": "Desert stars",
-    "src": "assets/wallpapers/night.jpg",
-    "thumb": "assets/wallpapers/night-thumb.jpg",
+    "id": "mirror",
+    "name": "Lujiazui reflections",
+    "src": "assets/wallpapers/mirror.jpg",
+    "thumb": "assets/wallpapers/mirror-thumb.jpg",
     "pos": "50% 50%",
     "tone": "light",
-    "credit": "Mohammad Alizade",
-    "source": "https://unsplash.com/photos/4wzRuAb-KWs"
+    "credit": "Freeman Zhou",
+    "source": "https://unsplash.com/photos/oV9hp8wXkPE"
   },
   {
-    "id": "peaks",
-    "name": "Blue peaks",
-    "src": "assets/wallpapers/peaks.jpg",
-    "thumb": "assets/wallpapers/peaks-thumb.jpg",
+    "id": "hongkou",
+    "name": "Night from Hongkou",
+    "src": "assets/wallpapers/hongkou.jpg",
+    "thumb": "assets/wallpapers/hongkou-thumb.jpg",
     "pos": "50% 50%",
     "tone": "dark",
-    "credit": "John Rodenn Castillo",
-    "source": "https://unsplash.com/photos/rQqWOHZ96OM"
+    "credit": "鱼 鱼",
+    "source": "https://unsplash.com/photos/9CFR4gROdcs"
   },
   {
-    "id": "bridge",
-    "name": "Bridge at dusk",
-    "src": "assets/wallpapers/bridge.jpg",
-    "thumb": "assets/wallpapers/bridge-thumb.jpg",
+    "id": "waibaidu",
+    "name": "Waibaidu Bridge",
+    "src": "assets/wallpapers/waibaidu.jpg",
+    "thumb": "assets/wallpapers/waibaidu-thumb.jpg",
     "pos": "50% 50%",
     "tone": "dark",
-    "credit": "Justin Wolff",
-    "source": "https://unsplash.com/photos/pbp_Ww2cewA"
+    "credit": "Richard Liu",
+    "source": "https://unsplash.com/photos/AhC3Zdn5wOQ"
   },
   {
-    "id": "ridge",
-    "name": "Sunlit ridges",
-    "src": "assets/wallpapers/ridge.jpg",
-    "thumb": "assets/wallpapers/ridge-thumb.jpg",
+    "id": "huangpu",
+    "name": "Huangpu at night",
+    "src": "assets/wallpapers/huangpu.jpg",
+    "thumb": "assets/wallpapers/huangpu-thumb.jpg",
     "pos": "50% 50%",
     "tone": "dark",
-    "credit": "Cristina Gottardi",
-    "source": "https://unsplash.com/photos/wndpWTiDuT0"
+    "credit": "Ilan Michel",
+    "source": "https://unsplash.com/photos/GeC2q7JzpQU"
   },
   {
-    "id": "golden",
-    "name": "Golden hour",
-    "src": "assets/wallpapers/golden.jpg",
-    "thumb": "assets/wallpapers/golden-thumb.jpg",
+    "id": "zhongshan",
+    "name": "Zhongshan Road lights",
+    "src": "assets/wallpapers/zhongshan.jpg",
+    "thumb": "assets/wallpapers/zhongshan-thumb.jpg",
     "pos": "50% 50%",
     "tone": "dark",
-    "credit": "Karthik Sreenivas",
-    "source": "https://unsplash.com/photos/tmtkhWbgMu8"
+    "credit": "Kounotori",
+    "source": "https://unsplash.com/photos/IU_nBd0oYPA"
   },
   {
-    "id": "summit",
-    "name": "Sunlit summits",
-    "src": "assets/wallpapers/summit.jpg",
-    "thumb": "assets/wallpapers/summit-thumb.jpg",
+    "id": "reflection",
+    "name": "River glow",
+    "src": "assets/wallpapers/reflection.jpg",
+    "thumb": "assets/wallpapers/reflection-thumb.jpg",
     "pos": "50% 50%",
     "tone": "dark",
-    "credit": "Rudra Gupta",
-    "source": "https://unsplash.com/photos/PuTSzJJ-qyU"
+    "credit": "Henry Chen",
+    "source": "https://unsplash.com/photos/Is3SdpT7OA4"
   },
   {
-    "id": "goldcoast",
-    "name": "Gold Coast dusk",
-    "src": "assets/wallpapers/goldcoast.jpg",
-    "thumb": "assets/wallpapers/goldcoast-thumb.jpg",
+    "id": "sunset",
+    "name": "Pudong sunset",
+    "src": "assets/wallpapers/sunset.jpg",
+    "thumb": "assets/wallpapers/sunset-thumb.jpg",
     "pos": "50% 50%",
     "tone": "light",
-    "credit": "City of Gold Coast",
-    "source": "https://unsplash.com/photos/YiaGblobOGI"
+    "credit": "ZENG YILI",
+    "source": "https://unsplash.com/photos/NFMbwZHT6vE"
   },
   {
-    "id": "sydney",
-    "name": "Sydney Harbour",
-    "src": "assets/wallpapers/sydney.jpg",
-    "thumb": "assets/wallpapers/sydney-thumb.jpg",
+    "id": "waterfront",
+    "name": "Blue waterfront",
+    "src": "assets/wallpapers/waterfront.jpg",
+    "thumb": "assets/wallpapers/waterfront-thumb.jpg",
     "pos": "50% 50%",
-    "tone": "light",
-    "credit": "Caleb",
-    "source": "https://unsplash.com/photos/JmuyB_LibRo"
+    "tone": "dark",
+    "credit": "Henry Chen",
+    "source": "https://unsplash.com/photos/ZEVe7PyDBs4"
   },
   {
-    "id": "amber",
-    "name": "Amber hills",
-    "src": "assets/wallpapers/amber.jpg",
-    "thumb": "assets/wallpapers/amber-thumb.jpg",
+    "id": "silhouette",
+    "name": "Skyline silhouette",
+    "src": "assets/wallpapers/silhouette.jpg",
+    "thumb": "assets/wallpapers/silhouette-thumb.jpg",
     "pos": "50% 50%",
-    "tone": "light",
-    "credit": "Chris Barbalis",
-    "source": "https://unsplash.com/photos/vazZtmYFgFY"
+    "tone": "dark",
+    "credit": "Pen Tsai",
+    "source": "https://unsplash.com/photos/djByJFHwFbY"
   },
   {
-    "id": "mint",
-    "name": "Mint wave",
-    "src": "assets/wallpapers/mint.jpg",
-    "thumb": "assets/wallpapers/mint-thumb.jpg",
+    "id": "customs",
+    "name": "Custom House clock",
+    "src": "assets/wallpapers/customs.jpg",
+    "thumb": "assets/wallpapers/customs-thumb.jpg",
     "pos": "50% 50%",
-    "tone": "light",
-    "credit": "MagicPattern",
-    "source": "https://unsplash.com/photos/87PP9Zd7MNo"
+    "tone": "dark",
+    "credit": "Archcookie",
+    "source": "https://unsplash.com/photos/gk-Gfo1cx1k"
   },
   {
-    "id": "alpine",
-    "name": "Alpine glow",
-    "src": "assets/wallpapers/alpine.jpg",
-    "thumb": "assets/wallpapers/alpine-thumb.jpg",
+    "id": "dusk",
+    "name": "Golden dusk",
+    "src": "assets/wallpapers/dusk.jpg",
+    "thumb": "assets/wallpapers/dusk-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Lewis BD",
+    "source": "https://unsplash.com/photos/pGk6UjPYjxQ"
+  },
+  {
+    "id": "skyline",
+    "name": "Towers at dusk",
+    "src": "assets/wallpapers/skyline.jpg",
+    "thumb": "assets/wallpapers/skyline-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Lijian (Richard) Zhu",
+    "source": "https://unsplash.com/photos/sze3ar5-Isw"
+  },
+  {
+    "id": "heritage",
+    "name": "Bund heritage",
+    "src": "assets/wallpapers/heritage.jpg",
+    "thumb": "assets/wallpapers/heritage-thumb.jpg",
     "pos": "50% 50%",
     "tone": "light",
-    "credit": "Cristina Gottardi",
-    "source": "https://unsplash.com/photos/CSpjU6hYo_0"
+    "credit": "Lijian (Richard) Zhu",
+    "source": "https://unsplash.com/photos/xA8Rc6IgWUk"
+  },
+  {
+    "id": "daylight",
+    "name": "Huangpu daylight",
+    "src": "assets/wallpapers/daylight.jpg",
+    "thumb": "assets/wallpapers/daylight-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "light",
+    "credit": "Rich Xu",
+    "source": "https://unsplash.com/photos/oqOQ9D4Q08E"
   }
 ]

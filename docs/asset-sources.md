@@ -1,24 +1,24 @@
 # Asset sources
 
-Reviewed on 20 October 2026. Each of the fifteen linked Unsplash photo pages displayed the listed author and “Free to use under the Unsplash License”. The bundled wallpapers, thumbnails and material fields derive from these photos. Keep these credits with redistributions and follow the [Unsplash License](https://unsplash.com/license).
+Reviewed on 26 October 2026. Each of the fifteen linked Unsplash photo pages (all of Shanghai) listed the author and was marked free to use under the [Unsplash License](https://unsplash.com/license), not Unsplash+. The bundled wallpapers, thumbnails, material fields and 4K video-layer stills derive from 3840px renditions of these photos. Keep these credits with redistributions and follow the Unsplash License.
 
 | Wallpaper | Photographer | Source |
 | --- | --- | --- |
-| Misty coast | Ganapathy Kumar | [Photo page](https://unsplash.com/photos/n4VMQZIkgDg) |
-| Quiet cove | Joshua Wordel | [Photo page](https://unsplash.com/photos/1L_5PT7EKzU) |
-| Forest mist | Dejan Zakic | [Photo page](https://unsplash.com/photos/rr2EF3J5F2Y) |
-| Mountain valley | Aniket Deole | [Photo page](https://unsplash.com/photos/M6XC789HLe8) |
-| Desert stars | Mohammad Alizade | [Photo page](https://unsplash.com/photos/4wzRuAb-KWs) |
-| Blue peaks | John Rodenn Castillo | [Photo page](https://unsplash.com/photos/rQqWOHZ96OM) |
-| Bridge at dusk | Justin Wolff | [Photo page](https://unsplash.com/photos/pbp_Ww2cewA) |
-| Sunlit ridges | Cristina Gottardi | [Photo page](https://unsplash.com/photos/wndpWTiDuT0) |
-| Golden hour | Karthik Sreenivas | [Photo page](https://unsplash.com/photos/tmtkhWbgMu8) |
-| Sunlit summits | Rudra Gupta | [Photo page](https://unsplash.com/photos/PuTSzJJ-qyU) |
-| Gold Coast dusk | City of Gold Coast | [Photo page](https://unsplash.com/photos/YiaGblobOGI) |
-| Sydney Harbour | Caleb | [Photo page](https://unsplash.com/photos/JmuyB_LibRo) |
-| Amber hills | Chris Barbalis | [Photo page](https://unsplash.com/photos/vazZtmYFgFY) |
-| Mint wave | MagicPattern | [Photo page](https://unsplash.com/photos/87PP9Zd7MNo) |
-| Alpine glow | Cristina Gottardi | [Photo page](https://unsplash.com/photos/CSpjU6hYo_0) |
+| The Bund at blue hour | Li Yang | [Photo page](https://unsplash.com/photos/5h_dMuX_7RE) |
+| Lujiazui reflections | Freeman Zhou | [Photo page](https://unsplash.com/photos/oV9hp8wXkPE) |
+| Night from Hongkou | 鱼 鱼 | [Photo page](https://unsplash.com/photos/9CFR4gROdcs) |
+| Waibaidu Bridge | Richard Liu | [Photo page](https://unsplash.com/photos/AhC3Zdn5wOQ) |
+| Huangpu at night | Ilan Michel | [Photo page](https://unsplash.com/photos/GeC2q7JzpQU) |
+| Zhongshan Road lights | Kounotori | [Photo page](https://unsplash.com/photos/IU_nBd0oYPA) |
+| River glow | Henry Chen | [Photo page](https://unsplash.com/photos/Is3SdpT7OA4) |
+| Pudong sunset | ZENG YILI | [Photo page](https://unsplash.com/photos/NFMbwZHT6vE) |
+| Blue waterfront | Henry Chen | [Photo page](https://unsplash.com/photos/ZEVe7PyDBs4) |
+| Skyline silhouette | Pen Tsai | [Photo page](https://unsplash.com/photos/djByJFHwFbY) |
+| Custom House clock | Archcookie | [Photo page](https://unsplash.com/photos/gk-Gfo1cx1k) |
+| Golden dusk | Lewis BD | [Photo page](https://unsplash.com/photos/pGk6UjPYjxQ) |
+| Towers at dusk | Lijian (Richard) Zhu | [Photo page](https://unsplash.com/photos/sze3ar5-Isw) |
+| Bund heritage | Lijian (Richard) Zhu | [Photo page](https://unsplash.com/photos/xA8Rc6IgWUk) |
+| Huangpu daylight | Rich Xu | [Photo page](https://unsplash.com/photos/oqOQ9D4Q08E) |
 
 The background preparation and material rendering steps are described in [asset generation](assets.md). Full-size original photos and research studies are outside the public source.
 
@@ -26,4 +26,4 @@ The background preparation and material rendering steps are described in [asset 
 
 Public fonts are Manrope, Geist and Newsreader under SIL OFL 1.1. Their licence texts are beside the assets; Geist and Newsreader source URLs and hashes are in `app/assets/fonts/SOURCES.json`.
 
-Icon sources, exact revisions and adaptation notes are in `app/assets/icons/SOURCES.json` and `ADDITIONAL-SOURCES.json`. ABC and SBS use the MIT Custom Brand Icons source at revision `a53cabf49bf439023a8f33585af30d783bffe51b`; ABC is recoloured from `abc-australia.svg`, and SBS is the extracted feather contour from `sbs-chill.svg`. The Disney+ icon also uses that project under MIT. Other service icons use Simple Icons under CC0. Utility outlines are original CleanFrame drawings. See [third-party notices](../THIRD_PARTY_NOTICES.md) for the retained licence texts and trademark scope.
+Icon sources, exact revisions and adaptation notes are in `app/assets/icons/SOURCES.json` and `ADDITIONAL-SOURCES.json`. Hulu, Peacock and Disney+ use the MIT Custom Brand Icons source at revision `a53cabf49bf439023a8f33585af30d783bffe51b`, recoloured white; the unused ABC and SBS marks from that project remain in the folder. Twitch and the other service icons use Simple Icons under CC0. Utility outlines are original CleanFrame drawings. See [third-party notices](../THIRD_PARTY_NOTICES.md) for the retained licence texts and trademark scope.
