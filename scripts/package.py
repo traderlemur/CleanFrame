@@ -22,9 +22,11 @@ if not password:
     raise SystemExit('Signing password is empty.')
 dist = ROOT / 'dist'
 dist.mkdir(exist_ok=True)
-data = SDK / 'data'
-data.mkdir(exist_ok=True)
-(SDK / 'sdk.info').write_text('TIZEN_SDK_INSTALLED_PATH=' + str(SDK) + '\nTIZEN_SDK_DATA_PATH=' + str(data) + '\nJDK_PATH=' + str(SDK / 'jdk') + '\n')
+# A shared SDK install keeps its own data path, where Certificate Manager stores profiles.
+if not (SDK / 'sdk.info').exists():
+    data = SDK / 'data'
+    data.mkdir(exist_ok=True)
+    (SDK / 'sdk.info').write_text('TIZEN_SDK_INSTALLED_PATH=' + str(SDK) + '\nTIZEN_SDK_DATA_PATH=' + str(data) + '\nJDK_PATH=' + str(SDK / 'jdk') + '\n')
 profile = PRIVATE / 'profiles.xml'
 tree = XML.parse(profile)
 for item in tree.getroot().iter('profileitem'):
@@ -42,7 +44,7 @@ unsigned = dist / 'CleanFrame-unsigned.wgt'
 write_widget_archive(unsigned)
 signed_dir = dist / 'signed'
 signed_dir.mkdir(exist_ok=True)
-command = [str(CLI), 'package', '-t', 'wgt', '-s', 'FrameHome', '-o', str(signed_dir), '--', str(unsigned)]
+command = [str(CLI), 'package', '-t', 'wgt', '-s', 'CleanFrame', '-o', str(signed_dir), '--', str(unsigned)]
 pid, terminal = pty.fork()
 if pid == 0:
     os.execv(command[0], command)
