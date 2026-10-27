@@ -68,6 +68,11 @@ The signing and TV scripts are specific to my setup. Your agent will need to ada
 
 The detailed [device record](docs/tv-status.md) separates observed results from SDK responses. Native Home/startup uses undocumented, guarded helpers; it is optional and can fail after firmware changes. Keep a recovery baseline before attempting that work. The app can be opened manually without it.
 
+On this fork's TV, where native Home is active:
+
+- **Restore before uninstalling CleanFrame.** Run `python3 scripts/native-home/run.py restore` first. Otherwise the Home button would point at an app that's no longer there.
+- **Leave Developer Mode on.** Restoring needs the developer connection.
+
 ## Develop and check
 
 ```sh
