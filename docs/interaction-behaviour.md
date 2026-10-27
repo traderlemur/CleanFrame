@@ -1,4 +1,4 @@
-# Interaction behaviour — 0.7.1
+# Interaction behaviour — 0.8.0
 
 ## Home
 
@@ -6,6 +6,8 @@
 - List: Up/Down scrolls the apps without wrapping. Right enters the bottom-right controls, aligned with the clock above. Up/Down moves between All apps and Settings. Left or Back returns to the selected app. The list fades at both ends as it scrolls.
 - OK opens the selected item. Focus alone never launches an app.
 - Opening a Home app, from Home or All apps, moves it to the far left (the top in List) and saves that order, so Home stays in most-recently-opened order. Focus stays on that app when you return. Apps not on Home are opened without being added.
+- The current New York City weather sits under the clock, for example "52° Partly cloudy", from Open-Meteo (no account or key). It refreshes every 15 minutes and on return to the launcher. If refreshes fail for three hours the line disappears; the clock never waits for it.
+- OLED care: the whole picture drifts by up to 3px every three minutes through an eight-step cycle, so the clock, dock and labels never sit on the same pixels for hours. The sliver it uncovers at one edge is black.
 - Icons-only apps and controls reveal their names when focused. App presentation and control presentation are independent.
 - Back from the app list or Dock opens a choice to stay or open Samsung Home.
 - A panel keeps focus within its own controls. Back closes one panel at a time.

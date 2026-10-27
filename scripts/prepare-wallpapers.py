@@ -29,6 +29,16 @@ PHOTOS = [
     ('skyline', 'Towers at dusk', 'skyline.jpg', 'Lijian (Richard) Zhu', 'sze3ar5-Isw', 'dark'),
     ('heritage', 'Bund heritage', 'heritage.jpg', 'Lijian (Richard) Zhu', 'xA8Rc6IgWUk', 'dark'),
     ('daylight', 'Huangpu daylight', 'daylight.jpg', 'Rich Xu', 'oqOQ9D4Q08E', 'light'),
+    # Second selection, 27 October 2026; two are from New York and Tokyo.
+    ('tower', 'Shanghai Tower aerial', 'tower.jpg', 'Zhou Xian', '7tFFO6Mq5L4', 'dark'),
+    ('teal', 'Teal tower sprawl', 'teal.jpg', 'Himmel S', 'ZyC_qGWPZiM', 'dark'),
+    ('pearl', 'Pearl Tower alone', 'pearl.jpg', 'Cici Hung', 'QR9SZy396rg', 'dark'),
+    ('riverbend', 'Huangpu river bend', 'riverbend.jpg', 'Oliver Wilson', '8KV6W31hVzU', 'dark'),
+    ('brooklyn', 'Brooklyn Bridge', 'brooklyn.jpg', 'Jonathan Pease', '1nlhZy86uPU', 'dark'),
+    ('aerial', 'Golden hour aerial', 'aerial.jpg', 'Denys Nevozhai', 'D8iZPlX-2fs', 'dark'),
+    ('pearlsunset', 'Pearl Tower sunset', 'pearlsunset.jpg', 'Yifan Cong', 'GszVE92a5Rs', 'dark'),
+    ('haze', 'Hazy river aerial', 'haze.jpg', 'Road Trip with Raj', 'py8eyAh9J3A', 'light'),
+    ('fuji', 'Tokyo Tower and Fuji', 'fuji.jpg', 'Clement Souchet', 'FVK-lpEc-Bc', 'light'),
 ]
 # Every Shanghai photo uses the Pillow cover recipe; originals are 3840px Unsplash renditions.
 COVER_IDS = {photo[0] for photo in PHOTOS}

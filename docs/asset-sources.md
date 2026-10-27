@@ -1,6 +1,6 @@
 # Asset sources
 
-Reviewed on 26 October 2026. Each of the fifteen linked Unsplash photo pages (all of Shanghai) listed the author and was marked free to use under the [Unsplash License](https://unsplash.com/license), not Unsplash+. The bundled wallpapers, thumbnails, material fields and 4K video-layer stills derive from 3840px renditions of these photos. Keep these credits with redistributions and follow the Unsplash License.
+The first fifteen were reviewed on 26 October 2026 and the last nine on 27 October 2026. Each of the twenty-four linked Unsplash photo pages (twenty-two of Shanghai, one of New York, one of Tokyo) listed the author and was marked free to use under the [Unsplash License](https://unsplash.com/license), not Unsplash+. The bundled wallpapers, thumbnails, material fields and 4K video-layer stills derive from 3840px renditions of these photos. Keep these credits with redistributions and follow the Unsplash License.
 
 | Wallpaper | Photographer | Source |
 | --- | --- | --- |
@@ -19,6 +19,15 @@ Reviewed on 26 October 2026. Each of the fifteen linked Unsplash photo pages (al
 | Towers at dusk | Lijian (Richard) Zhu | [Photo page](https://unsplash.com/photos/sze3ar5-Isw) |
 | Bund heritage | Lijian (Richard) Zhu | [Photo page](https://unsplash.com/photos/xA8Rc6IgWUk) |
 | Huangpu daylight | Rich Xu | [Photo page](https://unsplash.com/photos/oqOQ9D4Q08E) |
+| Shanghai Tower aerial | Zhou Xian | [Photo page](https://unsplash.com/photos/7tFFO6Mq5L4) |
+| Teal tower sprawl | Himmel S | [Photo page](https://unsplash.com/photos/ZyC_qGWPZiM) |
+| Pearl Tower alone | Cici Hung | [Photo page](https://unsplash.com/photos/QR9SZy396rg) |
+| Huangpu river bend | Oliver Wilson | [Photo page](https://unsplash.com/photos/8KV6W31hVzU) |
+| Brooklyn Bridge (New York) | Jonathan Pease | [Photo page](https://unsplash.com/photos/1nlhZy86uPU) |
+| Golden hour aerial | Denys Nevozhai | [Photo page](https://unsplash.com/photos/D8iZPlX-2fs) |
+| Pearl Tower sunset | Yifan Cong | [Photo page](https://unsplash.com/photos/GszVE92a5Rs) |
+| Hazy river aerial | Road Trip with Raj | [Photo page](https://unsplash.com/photos/py8eyAh9J3A) |
+| Tokyo Tower and Fuji (Tokyo) | Clement Souchet | [Photo page](https://unsplash.com/photos/FVK-lpEc-Bc) |
 
 The background preparation and material rendering steps are described in [asset generation](assets.md). Full-size original photos and research studies are outside the public source.
 

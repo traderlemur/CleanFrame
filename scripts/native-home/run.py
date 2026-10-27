@@ -2,7 +2,9 @@ from pathlib import Path
 import sys, base64, ipaddress, json, os, socket, subprocess, time, uuid, urllib.request
 r=Path(__file__).resolve().parents[2]; d=r/'.local/native-home'
 mode=sys.argv[1] if len(sys.argv)>1 else 'query'
-if mode not in ['query','apply','restore','inspect']:raise SystemExit('Unknown action')
+if mode not in ['query','apply','restore','inspect','status']:raise SystemExit('Unknown action')
+# status is a plain-language inspect: it still answers after a firmware update trips the helper's guard.
+script='inspect' if mode=='status' else mode
 host=json.loads((r/'.local/device.json').read_text())['host'];ipaddress.ip_address(host)
 with urllib.request.urlopen('http://'+host+':8001/api/v2/',timeout=4) as response: info=json.load(response)
 if info.get('device',{}).get('modelName')!='QN65S90DAFXZA':raise SystemExit('Model guard failed; nothing staged.')
@@ -14,13 +16,13 @@ def run(args,timeout=12):
 run(['connect',serial])
 # Re-stage reviewed helper files on each run so rollback survives SDK temporary-file cleanup.
 # inspect is plain shell, so it can run before the helper is built.
-for suffix in ['dll','runtimeconfig.json','deps.json'] if mode!='inspect' else []:
+for suffix in ['dll','runtimeconfig.json','deps.json'] if script!='inspect' else []:
     source=d/'out'/('CleanFrameHomeControl.'+suffix)
     run(['-s',serial,'push',str(source),'/home/owner/share/tmp/sdk_tools/CleanFrameHomeControl.'+suffix])
 if mode in ['apply','restore']:
     run(['-s',serial,'push',str(d/'original.json'),'/home/owner/share/tmp/sdk_tools/CleanFrameHomeOriginal.json'])
 token=uuid.uuid4().hex[:12];remote='/home/owner/share/tmp/sdk_tools/cfhi-'+token+'.sh'
-run(['-s',serial,'push',str(r/'scripts/native-home'/(mode+'.sh')),remote])
+run(['-s',serial,'push',str(r/'scripts/native-home'/(script+'.sh')),remote])
 with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as route:
  route.connect((host,9));local=route.getsockname()[0]
 with socket.socket() as listener:
@@ -49,6 +51,16 @@ with socket.socket() as listener:
   (d/(mode+'-output.txt')).write_text(output)
   (d/(mode+'-transport.json')).write_text(json.dumps({'returncode':proc.returncode,'stdout':stdout,'stderr':stderr,'remote_probe':remote,'time':time.time()},indent=2))
   if 'CLEANFRAME_HOME_INSPECT_BEGIN' not in output or 'CLEANFRAME_HOME_INSPECT_END' not in output:raise RuntimeError('Probe incomplete; device state is unknown. Inspect current values before retrying.')
-  print(output)
+  if mode!='status':print(output)
+  else:
+   # Compare with the helper's own guards, so the firmware and target are only written once (Control.cs).
+   import re
+   source=(r/'scripts/native-home/Control.cs').read_text()
+   want_fw=re.search(r'Version=([^;"]+);',source).group(1);want_app=re.search(r'Target="([^"]+)"',source).group(1)
+   fw=re.search(r'^Version=([^;\n]+);',output,re.M);home=re.search(r'db/appfw/home_appid, value = (\S+)',output)
+   fw=fw.group(1) if fw else 'unknown';home=home.group(1) if home else 'unknown'
+   print('Firmware: '+fw+(' (matches the helper)' if fw==want_fw else ' (CHANGED: the helper will refuse to run, including restore, until it is reviewed for this firmware)'))
+   print('Home app: '+home+(' (CleanFrame, as configured)' if home==want_app else ' (NOT CleanFrame: Home opens '+home+')'))
+   if fw!=want_fw or home!=want_app:raise SystemExit(1)
  finally:
   if proc.poll() is None:proc.terminate();proc.communicate(timeout=3)

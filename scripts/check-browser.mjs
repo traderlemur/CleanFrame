@@ -85,6 +85,8 @@ function installHarness({ seed, legacy, mock, catalog, minuteMs, catalogFailure,
     }
   };
 }
+// The weather service is never contacted: every page gets this reading, or a failure with weather: 'fail'.
+const WEATHER = { current: { temperature_2m: 52.4, weather_code: 2 } };
 async function page(options = {}) {
   current = await preview.browser.newPage({ viewport: { width: 1920, height: 1080 } });
   const owner = current;
@@ -99,6 +101,9 @@ async function page(options = {}) {
     if (expected.some(s => request.url().includes(s))) report.expectedNetworkFailures.push(failure);
     else if (failure.error !== 'net::ERR_ABORTED') report.pageErrors.push(failure);
   });
+  await current.route('https://api.open-meteo.com/**', route => options.weather === 'fail' ? route.abort('failed')
+    : route.fulfill({ status: 200, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: JSON.stringify(options.weather || WEATHER) }));
+  if (options.weather === 'fail') expected.push('api.open-meteo.com');
   await current.addInitScript(installHarness, { mock: true, catalog: CATALOG, minuteMs: 60000, seed: baseline(), ...options });
   await current.goto(preview.baseURL + '/home/');
   await ready();
@@ -258,6 +263,29 @@ try {
     await current.evaluate(() => { window.dispatchEvent(new Event('focus')); __tv.launchFailure = true; });
     await scene('home'); await act('home.app.netflix'); await current.waitForFunction(() => ShoreQA.where().view === 'message');
     check('Launch failure is shown', /could not|unavailable|try again/i.test(await current.locator('#stage').innerText()));
+  });
+  await run('Weather sits under the clock', async () => {
+    await page();
+    await current.waitForSelector('#caption .weather');
+    check('Weather shows rounded °F and a plain word', (await current.locator('#caption .weather').innerText()) === '52° Partly cloudy');
+    await look({ layout: 'list' });
+    check('Weather also shows in List', (await current.locator('#caption .weather').innerText()) === '52° Partly cloudy');
+    await page({ weather: { current: { temperature_2m: -0.4, weather_code: 95 } } });
+    await current.waitForSelector('#caption .weather');
+    check('Freezing and storm readings stay readable', (await current.locator('#caption .weather').innerText()) === '0° Thunderstorms');
+    await page({ weather: 'fail' });
+    check('A failed weather request leaves only the clock', (await current.locator('#caption .weather').count()) === 0 && /\d:\d\d/.test(await current.locator('#caption .clock').innerText()));
+    await page({ weather: { error: true } });
+    check('A malformed reply leaves only the clock', (await current.locator('#caption .weather').count()) === 0);
+  });
+  await run('OLED drift moves the whole picture a few pixels', async () => {
+    await page();
+    const rect = () => current.evaluate(() => { const r = document.getElementById('stage').getBoundingClientRect(); return { x: r.left, y: r.top, scale: r.width / 1920 }; });
+    const start = await rect(), d = await call('drift'), moved = await rect();
+    check('Drift offset is applied in stage pixels', Math.abs((moved.x - start.x) / start.scale - d[0]) < 0.01 && Math.abs((moved.y - start.y) / start.scale - d[1]) < 0.01, { start, moved, d });
+    let far = 0, centred = false;
+    for (let i = 0; i < 8; i++) { const o = await call('drift'); far = Math.max(far, Math.abs(o[0]), Math.abs(o[1])); centred = centred || same(o, [0, 0]); }
+    check('Drift stays within 3px and cycles back to centre', far <= 3 && centred, far);
   });
   await run('Opening a Home app moves it to the front', async () => {
     await page({ seed: baseline({ dock: ['netflix', 'youtube', 'disneyplus', 'hbomax'], lastApp: 'netflix' }) });
@@ -641,7 +669,7 @@ try {
       await act('background.wallpaper');
       await current.waitForFunction(() => ShoreQA.state().view === 'wallpaper');
       const names = await current.locator('.wallpaper-choice .setting-name').allTextContents();
-      check(layout + ' Wallpaper shows all fifteen named choices at ' + width, same(names, walls.map(w => w.name)), names);
+      check(layout + ' Wallpaper shows every named choice at ' + width, same(names, walls.map(w => w.name)), names);
       check('Wallpaper entry keeps the existing Home frame ' + layout + '/' + width, same(await previewFrame(), frame));
       const first = await wallpaperListGeometry();
       check('Wallpaper list shows about six rows with contained labels ' + layout + '/' + width, first.fullyVisible.length >= 5 && first.fullyVisible.length <= 6 && first.partlyVisible.length <= 7 && first.clippedParts.length === 0 && first.fullyVisible.includes(first.focus) && (await call('where')).focusCount === 1, first);

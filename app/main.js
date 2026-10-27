@@ -1071,8 +1071,38 @@
     if (!metrics || !metrics.digitCell) return text;
     return text.replace(/[0-9]/g, function (digit) { return '<span class="clock-digit">' + digit + '</span>'; });
   }
+  /* Weather under the clock, for New York City. Open-Meteo needs no account or key. A failed refresh keeps
+     the last reading for up to three hours, then the line disappears rather than showing stale weather. */
+  var WEATHER_URL = 'https://api.open-meteo.com/v1/forecast?latitude=40.7128&longitude=-74.0060&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America%2FNew_York';
+  var WEATHER_MS = 900000, WEATHER_KEEP = 10800000, weather = { text: '', at: 0, busy: false }, weatherTimer = 0;
+  var WEATHER_WORDS = [[0, 'Clear'], [1, 'Mostly clear'], [2, 'Partly cloudy'], [3, 'Cloudy'], [48, 'Fog'], [57, 'Drizzle'], [67, 'Rain'], [77, 'Snow'], [82, 'Showers'], [86, 'Snow showers'], [99, 'Thunderstorms']];
+  function weatherWord(code) {
+    for (var i = 0; i < WEATHER_WORDS.length; i++) if (code <= WEATHER_WORDS[i][0]) return WEATHER_WORDS[i][1];
+    return '';
+  }
+  function weatherText() { return weather.text && Date.now() - weather.at < WEATHER_KEEP ? weather.text : ''; }
+  function refreshWeather() {
+    var xhr;
+    clearTimeout(weatherTimer); weatherTimer = setTimeout(refreshWeather, WEATHER_MS);
+    if (weather.busy || document.hidden) return;
+    weather.busy = true;
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', WEATHER_URL); xhr.timeout = 10000;
+    xhr.onload = function () {
+      var now = null, word;
+      weather.busy = false;
+      try { now = JSON.parse(xhr.responseText).current; } catch (e) { now = null; }
+      if (xhr.status !== 200 || !now || typeof now.temperature_2m !== 'number') return;
+      word = weatherWord(now.weather_code);
+      weather.text = Math.round(now.temperature_2m) + '°' + (word ? ' ' + word : ''); weather.at = Date.now();
+      updateClock();
+    };
+    xhr.onerror = xhr.ontimeout = function () { weather.busy = false; };
+    xhr.send();
+  }
   function renderCaption(t, hs) {
-    var html = '<span class="clock">' + clockHtml() + '</span>';
+    var html = '<span class="clock">' + clockHtml() + '</span>', w = weatherText();
+    if (w) html += '<span class="cap-line weather">' + esc(w) + '</span>';
     if (S.c.apps !== 'icons' && hs.items[hs.i] && (S.c.layout === 'list' ? photoLabel(hs.items[hs.i].id, false).size < 88 || photoLabel(hs.items[hs.i].id, false).ellipsis : hs.zone === 'apps' && reducedDockLabel(hs.items[hs.i].id))) html += '<span class="cap-line full-name">' + esc(app(hs.items[hs.i].id).name) + '</span>';
     setHTML(caption, html);
   }
@@ -1783,12 +1813,17 @@
     else if (name === 'editor') { openSettings(); openEditor('settings'); }
     after();
   }
+  /* OLED care: the whole picture drifts up to 3px every few minutes so the clock and dock never sit on
+     the same pixels for hours. The sliver it uncovers is the black page, which an OLED leaves unlit. */
+  var DRIFT = [[0, 0], [2, 1], [3, -1], [1, -3], [-2, -2], [-3, 1], [-1, 3], [2, 3]], DRIFT_MS = 180000, driftAt = 0;
   function fit() {
-    var scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    var scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080), d = DRIFT[driftAt];
     stage.style.transform = 'scale(' + scale + ')';
-    stage.style.left = ((window.innerWidth - 1920 * scale) / 2) + 'px';
-    stage.style.top = ((window.innerHeight - 1080 * scale) / 2) + 'px';
+    stage.style.left = ((window.innerWidth - 1920 * scale) / 2 + d[0] * scale) + 'px';
+    stage.style.top = ((window.innerHeight - 1080 * scale) / 2 + d[1] * scale) + 'px';
   }
+  function drift() { driftAt = (driftAt + 1) % DRIFT.length; fit(); }
+  setInterval(drift, DRIFT_MS);
   function renderedAction(el) {
     return el.getClientRects().length > 0 && window.getComputedStyle(el).visibility !== 'hidden';
   }
@@ -1843,11 +1878,11 @@
   });
   document.addEventListener('keyup', function (ev) { delete heldKeys[ev.keyCode]; });
   window.addEventListener('blur', function () { heldKeys = {}; });
-  window.addEventListener('focus', function () { release(); focusStage(); after(); updateClock(); });
+  window.addEventListener('focus', function () { release(); focusStage(); after(); updateClock(); if (Date.now() - weather.at > WEATHER_MS) refreshWeather(); });
   document.addEventListener('visibilitychange', function () {
     heldKeys = {};
     if (document.hidden) { pauseRotation(); clearTimeout(clockTimer); }
-    else { release(); after(); updateClock(); focusStage(); }
+    else { release(); after(); updateClock(); focusStage(); if (Date.now() - weather.at > WEATHER_MS) refreshWeather(); }
   });
   window.addEventListener('resize', fit);
 
@@ -1878,6 +1913,7 @@
   QA.nav = function () { var keys = arguments.length === 1 && Array.isArray(arguments[0]) ? arguments[0] : Array.prototype.slice.call(arguments); keys.forEach(function (key) { if (!NAV[key]) throw new Error('Unknown key'); press(NAV[key]); }); return QA.state(); };
   QA.look = function (patch) { setLook(patch, {}); return QA.state(); };
   QA.scene = function (name) { if (['home', 'apps', 'settings', 'appearance', 'editor'].indexOf(name) < 0) throw new Error('Unknown view'); goScene(name); return QA.state(); };
+  QA.drift = function () { drift(); return DRIFT[driftAt].slice(); };
   QA.activate = function (action) { return activate(action) ? QA.state() : null; };
   QA.actions = function () { var view = isSettingsDetail(top()) ? appearanceEl : sheetEl.hidden ? homeEl : sheetEl; return Array.prototype.filter.call(view.querySelectorAll('[data-action]'), renderedAction).map(function (el) { return el.getAttribute('data-action'); }); };
 
@@ -1885,5 +1921,5 @@
   cueL.innerHTML = icon('left'); cueR.innerHTML = icon('right');
   initialise();
   setLook({}, { transient: true, startup: true });
-  norm(); render(); fit(); focusStage(); updateClock(); syncRotation();
+  norm(); render(); fit(); focusStage(); updateClock(); syncRotation(); refreshWeather();
 })();

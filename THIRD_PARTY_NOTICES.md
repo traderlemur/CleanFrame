@@ -24,7 +24,7 @@ Brand marks identify services. Their owners retain trademark rights; this projec
 
 ## Photographs and derived materials
 
-The fifteen Shanghai photo pages were individually checked on 26 October 2026. Each displayed its credited author and free use under the [Unsplash License](https://unsplash.com/license). The [asset source register](docs/asset-sources.md) links every page. Runtime paths are in `app/assets/wallpapers/SOURCES.json`.
+The fifteen original Shanghai photo pages were individually checked on 26 October 2026, and the nine added pages (Shanghai, New York and Tokyo) on 27 October 2026. Each displayed its credited author and free use under the [Unsplash License](https://unsplash.com/license). The [asset source register](docs/asset-sources.md) links every page. Runtime paths are in `app/assets/wallpapers/SOURCES.json`.
 
 Photographers retain their rights. Wallpapers, thumbnails, panel backgrounds and material fields derive from the credited photographs and retain their terms. The Unsplash licence permits copying, modification and distribution subject to its restrictions, including on selling unmodified images and building a competing image service.
 

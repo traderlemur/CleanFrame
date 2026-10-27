@@ -224,5 +224,140 @@ window.CleanFrameWallpapers = [
     "listColumn": 0,
     "dockQuiet": false,
     "clockMist": true
+  },
+  {
+    "id": "tower",
+    "name": "Shanghai Tower aerial",
+    "src": "assets/wallpapers/tower.jpg",
+    "thumb": "assets/wallpapers/tower-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 2,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "teal",
+    "name": "Teal tower sprawl",
+    "src": "assets/wallpapers/teal.jpg",
+    "thumb": "assets/wallpapers/teal-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "pearl",
+    "name": "Pearl Tower alone",
+    "src": "assets/wallpapers/pearl.jpg",
+    "thumb": "assets/wallpapers/pearl-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "riverbend",
+    "name": "Huangpu river bend",
+    "src": "assets/wallpapers/riverbend.jpg",
+    "thumb": "assets/wallpapers/riverbend-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "brooklyn",
+    "name": "Brooklyn Bridge",
+    "src": "assets/wallpapers/brooklyn.jpg",
+    "thumb": "assets/wallpapers/brooklyn-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "aerial",
+    "name": "Golden hour aerial",
+    "src": "assets/wallpapers/aerial.jpg",
+    "thumb": "assets/wallpapers/aerial-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 2,
+    "dockQuiet": false,
+    "clockMist": false
+  },
+  {
+    "id": "pearlsunset",
+    "name": "Pearl Tower sunset",
+    "src": "assets/wallpapers/pearlsunset.jpg",
+    "thumb": "assets/wallpapers/pearlsunset-thumb.jpg",
+    "tone": "dark",
+    "ut": {
+      "tr": "light",
+      "br": "light"
+    },
+    "frostVeil": 0.12,
+    "listColumn": 3,
+    "dockQuiet": false,
+    "clockMist": true
+  },
+  {
+    "id": "haze",
+    "name": "Hazy river aerial",
+    "src": "assets/wallpapers/haze.jpg",
+    "thumb": "assets/wallpapers/haze-thumb.jpg",
+    "tone": "light",
+    "ut": {
+      "tr": "dark",
+      "br": "mist"
+    },
+    "frostVeil": 0.2,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": true
+  },
+  {
+    "id": "fuji",
+    "name": "Tokyo Tower and Fuji",
+    "src": "assets/wallpapers/fuji.jpg",
+    "thumb": "assets/wallpapers/fuji-thumb.jpg",
+    "tone": "light",
+    "ut": {
+      "tr": "dark",
+      "br": "mist"
+    },
+    "frostVeil": 0.2,
+    "listColumn": 0,
+    "dockQuiet": false,
+    "clockMist": true
   }
 ];

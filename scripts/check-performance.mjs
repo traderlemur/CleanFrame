@@ -80,6 +80,7 @@ async function memory() {
 try {
   preview = await openPreview();
   page = await preview.browser.newPage({ viewport: { width: 1920, height: 1080 } });
+  await page.route('https://api.open-meteo.com/**', route => route.fulfill({ status: 200, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: '{"current":{"temperature_2m":52.4,"weather_code":2}}' }));
   page.on('pageerror', error => report.errors.push(error.message));
   page.on('response', response => { if (response.status() >= 400) report.errors.push(response.status() + ' ' + response.url()); });
   page.on('requestfailed', request => { if (!page.__closing && request.failure()?.errorText !== 'net::ERR_ABORTED') report.errors.push(request.failure()?.errorText + ' ' + request.url()); });

@@ -4,7 +4,7 @@ The app includes all runtime JPEGs, thumbnails, registered material fields, publ
 
 ## Current List and Dock materials
 
-The 0.6 runtime uses fifteen photographs. Each has a background, a thumbnail, a small panel backdrop and four full-stage material JPEGs. The runtime never generates blur or reads photo pixels. Generate selected materials with:
+The runtime uses twenty-four photographs. Each has a background, a thumbnail, a small panel backdrop and four full-stage material JPEGs. The runtime never generates blur or reads photo pixels. Generate selected materials with:
 
 ```sh
 node scripts/build-materials.mjs summit,goldcoast,sydney,amber,mint,alpine
@@ -27,7 +27,7 @@ All fields use the centred 1920 x 1080 crop. The small panel backdrop comes from
 
 ## New or replacement photographs
 
-The current set is fifteen Shanghai photographs from Unsplash, downloaded as 3840px renditions into ignored `.local/originals/shanghai/` (`picks.tsv` lists id, name, photo ID, CDN image and credit). Prepare them with Pillow in a local environment:
+The current set is twenty-four Unsplash photographs (twenty-two of Shanghai, one of New York and one of Tokyo), downloaded as 3840px renditions into ignored `.local/originals/shanghai/` (`picks.tsv` lists id, name, photo ID, CDN image and credit). Prepare them with Pillow in a local environment:
 
 ```sh
 python3 -m venv .local/venv && .local/venv/bin/pip install Pillow

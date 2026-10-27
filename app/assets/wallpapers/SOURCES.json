@@ -148,5 +148,95 @@
     "tone": "light",
     "credit": "Rich Xu",
     "source": "https://unsplash.com/photos/oqOQ9D4Q08E"
+  },
+  {
+    "id": "tower",
+    "name": "Shanghai Tower aerial",
+    "src": "assets/wallpapers/tower.jpg",
+    "thumb": "assets/wallpapers/tower-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Zhou Xian",
+    "source": "https://unsplash.com/photos/7tFFO6Mq5L4"
+  },
+  {
+    "id": "teal",
+    "name": "Teal tower sprawl",
+    "src": "assets/wallpapers/teal.jpg",
+    "thumb": "assets/wallpapers/teal-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Himmel S",
+    "source": "https://unsplash.com/photos/ZyC_qGWPZiM"
+  },
+  {
+    "id": "pearl",
+    "name": "Pearl Tower alone",
+    "src": "assets/wallpapers/pearl.jpg",
+    "thumb": "assets/wallpapers/pearl-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Cici Hung",
+    "source": "https://unsplash.com/photos/QR9SZy396rg"
+  },
+  {
+    "id": "riverbend",
+    "name": "Huangpu river bend",
+    "src": "assets/wallpapers/riverbend.jpg",
+    "thumb": "assets/wallpapers/riverbend-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Oliver Wilson",
+    "source": "https://unsplash.com/photos/8KV6W31hVzU"
+  },
+  {
+    "id": "brooklyn",
+    "name": "Brooklyn Bridge",
+    "src": "assets/wallpapers/brooklyn.jpg",
+    "thumb": "assets/wallpapers/brooklyn-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Jonathan Pease",
+    "source": "https://unsplash.com/photos/1nlhZy86uPU"
+  },
+  {
+    "id": "aerial",
+    "name": "Golden hour aerial",
+    "src": "assets/wallpapers/aerial.jpg",
+    "thumb": "assets/wallpapers/aerial-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Denys Nevozhai",
+    "source": "https://unsplash.com/photos/D8iZPlX-2fs"
+  },
+  {
+    "id": "pearlsunset",
+    "name": "Pearl Tower sunset",
+    "src": "assets/wallpapers/pearlsunset.jpg",
+    "thumb": "assets/wallpapers/pearlsunset-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "dark",
+    "credit": "Yifan Cong",
+    "source": "https://unsplash.com/photos/GszVE92a5Rs"
+  },
+  {
+    "id": "haze",
+    "name": "Hazy river aerial",
+    "src": "assets/wallpapers/haze.jpg",
+    "thumb": "assets/wallpapers/haze-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "light",
+    "credit": "Road Trip with Raj",
+    "source": "https://unsplash.com/photos/py8eyAh9J3A"
+  },
+  {
+    "id": "fuji",
+    "name": "Tokyo Tower and Fuji",
+    "src": "assets/wallpapers/fuji.jpg",
+    "thumb": "assets/wallpapers/fuji-thumb.jpg",
+    "pos": "50% 50%",
+    "tone": "light",
+    "credit": "Clement Souchet",
+    "source": "https://unsplash.com/photos/FVK-lpEc-Bc"
   }
 ]

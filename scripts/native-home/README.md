@@ -2,11 +2,14 @@
 
 This one-shot development helper is scoped to Evan's S90D (QN65S90DAFXZA, firmware T-PTMDAKUC-0090-2130.0) and the app `Z9MqiMW2do.CleanFrame`. Nathan's original targeted his Frame (T-PTMDUABC-0090-2130.0). It does not run inside CleanFrame or remain active on the TV. It uses the existing SDB developer connection and the published package-name command workaround to execute as SDK UID 901. It does not request root or change security policy.
 
+`status` is the plain-language check to run after a Samsung firmware update. It reads the firmware string and the Home app over the inspect script, so it still answers when the helper's firmware guard would refuse. It exits non-zero if either differs from `Control.cs`.
+
 `Control.cs` exposes read-only query, guarded apply, and exact-value restore through native Home and vconf APIs. It refuses other firmware, root, changed original values, or an ineligible/missing app. Apply failures attempt immediate restore. The baseline and compiled tools remain in ignored `.local/native-home/`.
 
 From the project root:
 
 ```sh
+python3 scripts/native-home/run.py status
 python3 scripts/native-home/run.py query
 python3 scripts/native-home/run.py restore
 ```
