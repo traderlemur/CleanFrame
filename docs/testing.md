@@ -24,7 +24,7 @@ For manual review, use `npm run dev` and open `/home/`. Use the arrow keys, Ente
 
 ## Physical TV checks
 
-Run these only under a task that includes TV testing. Announce any installation or launch first, then follow `development.md`. SDK success alone is not a visible result. Ask Nathan to confirm the normal remote behaviour and record the version, firmware, result and any open checks in `tv-status.md`.
+Run these only under a task that includes TV testing. Announce any installation or launch first, then follow `development.md`. SDK success alone is not a visible result. Ask the TV owner to confirm the normal remote behaviour and record the version, firmware, result and any open checks in `tv-status.md`.
 
 1. Move in both directions through each layout and Settings; check focus, response and readable labels from the sofa.
 2. Launch Netflix/YouTube, press Home to return, and check the selected app. Treat streaming apps' own Back handling separately.

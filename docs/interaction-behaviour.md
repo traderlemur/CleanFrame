@@ -1,4 +1,4 @@
-# Interaction behaviour — 0.6.1
+# Interaction behaviour — 0.7.1
 
 ## Home
 
@@ -78,7 +78,7 @@ Launcher wallpaper is separate from native Art Mode. Runtime photos, materials a
 - [Samsung Application API](https://developer.samsung.com/smarttv/develop/api-references/tizen-web-device-api-references/application-api.html): installed-app discovery and application control.
 - [Samsung application termination guide](https://developer.samsung.com/smarttv/develop/guides/fundamentals/terminating-applications.html): exiting is not treated as a deterministic Samsung Home route.
 
-The native Home operation and startup configuration from 19 October remain separate from this app update. Home from Netflix was confirmed for that configuration; power-on after Netflix remains provisional. Streaming apps retain their own Back navigation. Netflix did not exit on repeated Back in the observed test, so there was no app-exit destination to verify. No global Back interception or key-filter hook was installed. See [TV status](tv-status.md) for device evidence; this behaviour specification is not an installation or visual-verification record for 0.6.0.
+The native Home operation and startup configuration remain separate from app updates. On this fork's S90D (configured 26 October), Home from Netflix and YouTube and power-on after streaming land on CleanFrame. Streaming apps retain their own Back navigation. Netflix did not exit on repeated Back in the observed test, so there was no app-exit destination to verify. No global Back interception or key-filter hook was installed. See [TV status](tv-status.md) for device evidence; this behaviour specification is not an installation or visual-verification record for 0.6.0.
 
 ## Clock and rendering
 

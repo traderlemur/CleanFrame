@@ -218,7 +218,7 @@ Before native Home changes, verify a usable route back to Samsung's normal inter
 
 The helper assigned the native main Home operation, `http://tizen.org/appcontrol/operation/main`, with `app_operation_set_current_app`. It set the Home app ID through `vconf_set_str` and Home autostart through `vconf_set_int`. Later readback also named the custom launcher in the derived startup and boot-backup fields. Setting values alone did not establish normal power-on behaviour.
 
-The [published S90D native Home work](https://github.com/splitcipher/couchroot/blob/83906b468836869933012da03a4018fb339462b3/docs/devices/s90d/README.md) explains the underlying method on a different model. It is a technical reference, not a universal installer. Review its native Home implementation with your own app IDs, addresses and saved originals before preparing any command.
+The [published S90D native Home work](https://github.com/splitcipher/couchroot/blob/83906b468836869933012da03a4018fb339462b3/docs/devices/s90d/README.md) explains the underlying method on a different model. This fork reused the helper on an S90D (QN65S90DAFXZA, firmware T-PTMDAKUC-0090-2130.0) by changing only its model, firmware and app-ID guards; see [TV status](tv-status.md). It is a technical reference, not a universal installer. Review its native Home implementation with your own app IDs, addresses and saved originals before preparing any command.
 
 Your agent must review or adapt a native helper implementation for your exact firmware and `<APP_ID>`, then prepare concrete query, apply and restore commands. Replacing an app name in a command is insufficient.
 
