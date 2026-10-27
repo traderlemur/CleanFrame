@@ -259,6 +259,17 @@ try {
     await scene('home'); await act('home.app.netflix'); await current.waitForFunction(() => ShoreQA.where().view === 'message');
     check('Launch failure is shown', /could not|unavailable|try again/i.test(await current.locator('#stage').innerText()));
   });
+  await run('Opening a Home app moves it to the front', async () => {
+    await page({ seed: baseline({ dock: ['netflix', 'youtube', 'disneyplus', 'hbomax'], lastApp: 'netflix' }) });
+    await act('home.app.disneyplus'); await current.waitForFunction(() => __tv.calls.length === 1);
+    const s = await stored();
+    check('Opened app leads the saved order', same(s.dock, ['disneyplus', 'netflix', 'youtube', 'hbomax']) && s.lastApp === 'disneyplus', s);
+    await current.evaluate(() => window.dispatchEvent(new Event('focus')));
+    const back = await state();
+    check('Home focus stays on the opened app at the left', back.selected === 'disneyplus' && back.dock[0] === 'disneyplus', back.selected);
+    await scene('home'); await act('home.app.disneyplus'); await current.waitForFunction(() => __tv.calls.length === 2);
+    check('Opening the front app keeps the order', same((await stored()).dock, ['disneyplus', 'netflix', 'youtube', 'hbomax']));
+  });
   await run('Catalogue failure and retry', async () => {
     await page({ catalogFailure: true }); await library();
     check('Catalogue failure leaves Home intact', same((await state()).dock, PRIMARY));

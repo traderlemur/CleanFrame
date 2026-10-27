@@ -465,7 +465,8 @@
   function launch(id) {
     var a = app(id), c;
     if (!a || busy) return;
-    if (S.c.home.indexOf(id) >= 0) { c = next(S.c.home.slice(), S.c.recent.slice()); c.lastApp = id; write(c, 'Last app'); }
+    /* The most recently opened Home app moves to the front, so Home keeps itself in recency order. */
+    if (S.c.home.indexOf(id) >= 0) { c = next([id].concat(without(S.c.home, id)), S.c.recent.slice()); c.lastApp = id; if (write(c, 'Last app')) setSel(id); }
     S.press = id; S.lastLaunch = a.name;
     perform(a.name, function (done) { FrameDevice.launchApp(a.appId, done); });
   }
