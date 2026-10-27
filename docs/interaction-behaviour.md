@@ -1,4 +1,4 @@
-# Interaction behaviour — 0.8.0
+# Interaction behaviour — 0.9.0
 
 ## Home
 
@@ -8,6 +8,7 @@
 - Opening a Home app, from Home or All apps, moves it to the far left (the top in List) and saves that order, so Home stays in most-recently-opened order. Focus stays on that app when you return. Apps not on Home are opened without being added.
 - The current New York City weather sits under the clock, for example "52° Partly cloudy", from Open-Meteo (no account or key). It refreshes every 15 minutes and on return to the launcher. If refreshes fail for three hours the line disappears; the clock never waits for it.
 - OLED care: the whole picture drifts by up to 3px every three minutes through an eight-step cycle, so the clock, dock and labels never sit on the same pixels for hours. The sliver it uncovers at one edge is black.
+- 4K wallpaper (TV only, `app/uhd.js`): the photo first appears as the 1080p JPEG. Its 4K clip then opens on the video plane, and after about two seconds the web layer turns transparent over the first frame. The clip pauses on a still frame, so nothing moves. The player closes whenever CleanFrame is hidden, which frees the decoder for the app being opened, and reopens on return. Any failure leaves the JPEG in place. The video follows the OLED drift. Previews and changes in the wallpaper picker switch clips too.
 - Icons-only apps and controls reveal their names when focused. App presentation and control presentation are independent.
 - Back from the app list or Dock opens a choice to stay or open Samsung Home.
 - A panel keeps focus within its own controls. Back closes one panel at a time.

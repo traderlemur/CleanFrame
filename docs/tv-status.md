@@ -17,13 +17,13 @@ Developer Mode is on: Home → Apps (top banner) → Settings at the bottom of A
 
 ## Current app and identity
 
-CleanFrame 0.8.0 was signed, installed in place and launched on 27 October. The SDK reported installation complete and the app is in the installed list.
+CleanFrame 0.9.0 was signed, installed in place and launched on 27 October. The SDK reported installation complete and the app is in the installed list.
 
 - Package: `Z9MqiMW2do`
 - Application: `Z9MqiMW2do.CleanFrame`
 - Display name: `CleanFrame`
 
-This fork's changes from upstream: twenty-four wallpapers (mostly Shanghai, plus New York and Tokyo), New York weather under the clock, a slow OLED pixel shift, US streaming apps (Netflix, YouTube, Disney+, HBO Max, Prime Video, Apple TV, Twitch, Hulu, Peacock), a dock ordered by most recently opened app, and no Art Mode control.
+This fork's changes from upstream: twenty-four wallpapers (mostly Shanghai, plus New York and Tokyo) shown in 4K on the video plane, New York weather under the clock, a slow OLED pixel shift, US streaming apps (Netflix, YouTube, Disney+, HBO Max, Prime Video, Apple TV, Twitch, Hulu, Peacock), a dock ordered by most recently opened app, and no Art Mode control.
 
 ## Physically confirmed
 
@@ -31,6 +31,7 @@ Evan confirmed on 26 October:
 
 - 0.6.1 looked broadly right; 0.7.1 opens apps and moves the opened app to the front of the dock.
 - On 27 October: 0.8.0 shows the weather under the clock, and the nine added wallpapers look good.
+- On 27 October, 4K wallpapers through AVPlay: the packaged clip opened at 3840x2160 and held a still frame. Evan saw a sharper picture with the clock, weather and dock unchanged, and no black areas or flicker. It returned after opening YouTube and after remote power off/on (standby keeps the same app process).
 - Physical Home from Netflix and from YouTube opens CleanFrame.
 - CleanFrame's Samsung Home action (`com.samsung.tv.csfs`) opens Samsung's normal home screen.
 - Powering off with the remote after streaming, then on again, shows CleanFrame.
@@ -42,7 +43,6 @@ App IDs come from this TV's installed-app list: Netflix `org.tizen.netflix-app`,
 
 - A full mains power cycle (unplugged), as opposed to remote standby.
 - Behaviour after a Samsung firmware update. The helper's firmware guard will refuse to run, including restore, until it is reviewed for the new firmware. Keep automatic updates off (Settings → Support → Software Update → Auto Update) so updates happen deliberately, then run `python3 scripts/native-home/run.py status`.
-- 4K wallpapers through the AVPlay video layer have not been prototyped.
 
 Browser and package checks establish source behaviour and archive contents. CPU-throttled Chromium timings are development comparisons; they are not TV benchmarks. Current browser checks are described in [testing](testing.md).
 

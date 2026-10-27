@@ -599,3 +599,6 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000}
 .is-font-switch .home .ph-name,.is-font-switch .home .clock,.is-font-switch .home .tile .label,.is-font-switch .home .u-label,.is-font-switch .home .app-focus-name,.is-font-switch .home .util-focus-label{animation:font-in 160ms linear}
 @keyframes font-in{from{opacity:0}}
 @media(prefers-reduced-motion:reduce){.is-font-switch .home .ph-name,.is-font-switch .home .clock,.is-font-switch .home .tile .label,.is-font-switch .home .u-label,.is-font-switch .home .app-focus-name,.is-font-switch .home .util-focus-label{animation-duration:120ms}}
+/* 4K video wallpaper: the web layer turns transparent once the video plane has a frame. */
+html.uhd-on,html.uhd-on body,html.uhd-on .stage,html.uhd-on .scene{background:transparent}
+html.uhd-on .photo{visibility:hidden}

@@ -1689,6 +1689,7 @@
     S.shown = { bg: look.bg, wall: look.wall, material: look.material, font: look.font };
     phFields.concat(utFields).forEach(function (el) { var p = el._placement; if (p) fieldTransform(el, p.x, p.y, p.width, p.height); });
     S.wallShown = look.wall; S.wallPending = null; S.wallError = null;
+    if (window.CleanFrameUHD) window.CleanFrameUHD.sync(look.bg === 'photo' ? look.wall : null);
   }
   function cleanPatch(patch) {
     var out = {}, k;
@@ -1822,7 +1823,7 @@
     stage.style.left = ((window.innerWidth - 1920 * scale) / 2 + d[0] * scale) + 'px';
     stage.style.top = ((window.innerHeight - 1080 * scale) / 2 + d[1] * scale) + 'px';
   }
-  function drift() { driftAt = (driftAt + 1) % DRIFT.length; fit(); }
+  function drift() { driftAt = (driftAt + 1) % DRIFT.length; fit(); if (window.CleanFrameUHD) window.CleanFrameUHD.move(DRIFT[driftAt][0], DRIFT[driftAt][1]); }
   setInterval(drift, DRIFT_MS);
   function renderedAction(el) {
     return el.getClientRects().length > 0 && window.getComputedStyle(el).visibility !== 'hidden';
