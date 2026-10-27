@@ -1,6 +1,6 @@
 # Native Home control
 
-This one-shot development helper is scoped to Nathan's Frame and firmware 2130.0. It does not run inside CleanFrame or remain active on the TV. It uses the existing SDB developer connection and the published package-name command workaround to execute as SDK UID 901. It does not request root or change security policy.
+This one-shot development helper is scoped to Evan's S90D (QN65S90DAFXZA, firmware T-PTMDAKUC-0090-2130.0) and the app `Z9MqiMW2do.CleanFrame`. Nathan's original targeted his Frame (T-PTMDUABC-0090-2130.0). It does not run inside CleanFrame or remain active on the TV. It uses the existing SDB developer connection and the published package-name command workaround to execute as SDK UID 901. It does not request root or change security policy.
 
 `Control.cs` exposes read-only query, guarded apply, and exact-value restore through native Home and vconf APIs. It refuses other firmware, root, changed original values, or an ineligible/missing app. Apply failures attempt immediate restore. The baseline and compiled tools remain in ignored `.local/native-home/`.
 
